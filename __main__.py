@@ -54,7 +54,7 @@ def concat(args):
                   % ('valid' if isvalid else 'invalid', hsum),
                   file=sys.stderr)
 
-    ofile = open(args.output, 'wb') if args.output else sys.stdout
+    ofile = open(args.output, 'wb') if args.output else sys.stdout.buffer
     tool.concat(jd.header, b, ofile)
 
 if __name__ == '__main__':

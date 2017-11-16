@@ -52,7 +52,7 @@ class json_decoder(object):
             self.bhash = None
         else:
             '''assuming data contains json'''
-            j = json.load(bytes(data).decode())
+            j = json.loads(bytes(data).decode())
             self.header = base64.b64decode(j['header'].encode())
             try:
                 self.ohash = j['origin-hash']
