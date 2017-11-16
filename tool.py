@@ -26,12 +26,12 @@ def ispgpheader(data):
     if len(data) <= 1:
         raise PgpdumpException("data too short")
     return bool(data[0] & pgpdump.BinaryData.binary_tag_flag)
-    
+
 class json_encoder(object):
     def __init__(self, header):
         if not ispgpheader(header):
             raise PgpdumpException("incorrect header")
-        
+
         self.j = dict()
         self.j['header'] = base64.b64encode(header).decode()
 

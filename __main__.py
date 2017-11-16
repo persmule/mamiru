@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import sys
 import argparse
@@ -14,7 +14,7 @@ def split(args):
         with open(args.header, 'w') as h:
             print('Encoding header as json...', file=sys.stderr)
             je = tool.json_encoder(d.data[:new_off])
-            
+
             if args.orighash:
                 hsum = tool.hashdata(args.orighash, d.data)
                 print('Adding %s hash of original file %s...'
@@ -28,7 +28,7 @@ def split(args):
                 print('Adding %s hash of the body part %s...'
                       % (args.bodyhash, hsum),
                       file=sys.stderr)
-                
+
             h.write(je.encode())
             h.write('\n')
     else:
@@ -43,7 +43,7 @@ def concat(args):
     b = get_offset.mapfile(args.body)
     if args.verify:
         if jd.ohash:
-            isvalid, hsum = jd.verify(b) 
+            isvalid, hsum = jd.verify(b)
             print('Integrity of all data provided is %s: %s'
                   % ('valid' if isvalid else 'invalid', hsum),
                   file=sys.stderr)
