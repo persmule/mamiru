@@ -39,7 +39,7 @@ def packets_at(data):
 
 def mapfile(name):
     with open(name, 'rb') as infile:
-        return RawData(mmap.mmap(infile.fileno(), 0, prot = mmap.PROT_READ))
+        return mmap.mmap(infile.fileno(), 0, prot = mmap.PROT_READ)
 
 def get_sym_start(data):
     '''Get the start offset of Symmetrically Encrypted Data.'''
