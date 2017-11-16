@@ -5,10 +5,7 @@ mamiru: shebang codepack.zip
 	chmod +x $@
 
 codepack.zip: *.py pgpdump
-	zip `basename -s .zip $@` *.py
-	zip `basename -s .zip $@` -r pgpdump
+	zip `basename -s .zip $@` *.py -r pgpdump -x '*.pyc' -x '__pycache__'
 
-clearcache: pgpdump/*.pyc pgpdump/__pycache__
-	-rm -r $^
 clean:
 	-rm mamiru codepack.zip
