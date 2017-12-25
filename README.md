@@ -17,3 +17,27 @@ You could get the point how to assemble the original OpenPGP input from its spli
 
 # To make the life of those who run surveillance harder.
 gnupg tends to produce partialized symmetrically-encrypted body if compression before encryption is enabled, or input data is piped from another process. Bodies in such format contain equidistantly distributed part-length info, which may become a clue, so it is suggested to use other tools (e.g. gzip, xz, zip, 7z) to perform compression, and encrypt the compressed **FILE** (including epub and compact image and video files) by gnupg with compression disabled (`-z 0`), when used along with `mamiru`.
+
+# License
+This file is part of Mamiru.
+Copyright (C) 2017, Persmule
+All rights reserved.
+
+Derived from 'python-pgpdump'.
+https://github.com/toofishes/python-pgpdump/
+
+Copyright (C) 2011-2014, Dan McGee.
+All rights reserved.
+
+Mamiru is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Mamiru is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Mamiru.  If not, see <http://www.gnu.org/licenses/>.
