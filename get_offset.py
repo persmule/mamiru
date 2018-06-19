@@ -27,8 +27,8 @@ import pgpdump.packet
 import mmap
 import os
 
-class RawData(pgpdump.BinaryData):
-    '''A wrapper class that does not copy data, designed to operate on mmap of large binary openpgp files'''
+class NCData(pgpdump.BinaryData):
+    '''A wrapper class that does not copy data, designed to operate on memoryview of large binary openpgp data'''
 
     def __init__(self, data):
         if not data:
@@ -39,7 +39,7 @@ class RawData(pgpdump.BinaryData):
         # 7th bit of the first byte must be a 1
         if not bool(data[0] & self.binary_tag_flag):
             raise PgpdumpException("incorrect binary data")
-        self.data = data
+        self.data = memoryview(data)
         self.length = len(data)
 
 def preread_tag(data, offset):

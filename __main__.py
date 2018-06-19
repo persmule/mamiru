@@ -29,7 +29,7 @@ import get_offset
 import tool
 
 def split(args):
-    d = get_offset.RawData(get_offset.mapfile(args.ifile))
+    d = get_offset.NCData(get_offset.mapfile(args.ifile))
     off = get_offset.get_sym_start(d)
     new_off = tool.round_offset(off)
     print('The offset of %s is %u, rounded to %u' % (args.ifile, off, new_off), file=sys.stderr);
